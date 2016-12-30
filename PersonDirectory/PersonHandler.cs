@@ -39,12 +39,13 @@ namespace PersonDirectory
             return DateTime.Now.Year - person.Age;
         }
 
-        public double CalculateBMI(Person person)
+        public BodyMassIndex CalculateBMI(Person person)
         {
             if (person == null)
-                return 0;
+                return null;
 
-            return person.Weight / (person.Height * person.Height);
+            var bmiScore = person.Weight / (person.Height * person.Height);
+            return new BodyMassIndex(bmiScore);
         }
     }
 }
