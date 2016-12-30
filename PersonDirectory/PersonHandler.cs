@@ -44,8 +44,7 @@ namespace PersonDirectory
             if (person == null)
                 return null;
 
-            var bmiScore = person.Weight / (person.Height * person.Height);
-            return new BodyMassIndex(bmiScore);
+            return new BodyMassIndex(person.Weight, person.Height);
         }
     }
 }

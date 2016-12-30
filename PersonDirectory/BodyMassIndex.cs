@@ -2,22 +2,26 @@
 {
     internal class BodyMassIndex
     {
-        public string Category { get; }
+        public string Category { get; private set; }
         public double Score { get; }
 
-        public BodyMassIndex() : this(0) { }
-
-        public BodyMassIndex(double score)
+        public BodyMassIndex(double weight, double height)
         {
-            Score = score;
+            if (height > 0)
+                Score = weight / (height * height);
 
-            if (score < 19)
+            SetCategory();
+        }
+
+        private void SetCategory()
+        {
+            if (Score < 19)
                 Category = "Underweight";
-            else if (score > 19 && score <= 25)
+            else if (Score > 19 && Score <= 25)
                 Category = "Normal (healthy weight)";
-            else if (score > 25 && score <= 30)
+            else if (Score > 25 && Score <= 30)
                 Category = "Overweight";
-            else if (score > 30)
+            else if (Score > 30)
                 Category = "Obese";
         }
     }

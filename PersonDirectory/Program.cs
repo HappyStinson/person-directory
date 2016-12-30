@@ -26,7 +26,7 @@ namespace PersonDirectory
             Console.WriteLine($"is {person?.Age} years of age");
             Console.WriteLine($"and was born in {handler?.CalculateBirthYear(person)}");
             var BMI = handler?.CalculateBMI(person);
-            Console.WriteLine($"and has a BMI of: {BMI.Score} wich is {BMI.Category}");
+            Console.WriteLine($"and has a BMI of: {BMI.Score:F2} wich is {BMI.Category}");
         }
 
         private static void PrintPerson(Person person)
