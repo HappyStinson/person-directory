@@ -8,7 +8,10 @@
         public BodyMassIndex(double weight, double height)
         {
             if (height > 0)
+            {
+                height /= 100;
                 Score = weight / (height * height);
+            }
 
             SetCategory();
         }
