@@ -8,7 +8,14 @@
         private double height;
         private double weight;
 
-        public Person() { }
+        public Person(int age, string firstName, string lastName, double height, double weight)
+        {
+            this.age = age;
+            this.fname = firstName;
+            this.lname = lastName;
+            this.height = height;
+            this.weight = weight;
+        }
 
         public int Age
         {

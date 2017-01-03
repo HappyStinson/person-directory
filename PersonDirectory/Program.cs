@@ -6,15 +6,6 @@ namespace PersonDirectory
     {
         static void Main(string[] args)
         {
-            //var person = new Person()
-            //{
-            //    Age = 26,
-            //    FirstName = "John",
-            //    LastName = "Doe",
-            //    Height = 175,
-            //    Weight = 75
-            //};
-
             var handler = new PersonHandler();
             var people = new Person[5];
             people[0] = handler.CreatePerson(age: 0, fname: "John", lname: "Doe", height: 0, weight: 0);
@@ -26,7 +17,7 @@ namespace PersonDirectory
             Console.WriteLine("Calling -> PrintSummary \n");
             foreach (var person in people)
             {
-                PrintSummary(person);
+                Console.WriteLine(handler.PersonSummary(person));
                 Console.WriteLine();
             }            
 
@@ -34,27 +25,9 @@ namespace PersonDirectory
             Console.WriteLine("Calling -> PrintStatistics \n");
             foreach (var person in people)
             {
-                PrintStatistics(handler, person);
+                Console.WriteLine(handler.PersonStatistics(person));
                 Console.WriteLine();
             }
-        }
-
-        private static void PrintSummary(Person person)
-        {
-            Console.WriteLine($"Age: {person?.Age}");
-            Console.WriteLine($"Firstname: {person?.FirstName}");
-            Console.WriteLine($"Lastname: {person?.LastName}");
-            Console.WriteLine($"Height: {person?.Height} cm");
-            Console.WriteLine($"Weight: {person?.Weight} kg");
-        }
-
-        private static void PrintStatistics(PersonHandler handler, Person person)
-        {
-            Console.WriteLine($"{handler?.FullName(person)}");
-            Console.WriteLine($"is {person?.Age} years of age");
-            Console.WriteLine($"and was born in {handler?.CalculateBirthYear(person)}");
-            var BMI = handler?.CalculateBMI(person);
-            Console.WriteLine($"and has a BMI of: {BMI.Score:F2} wich is {BMI.Category}");
         }
     }
 }
